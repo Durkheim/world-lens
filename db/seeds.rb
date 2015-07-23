@@ -1,7 +1,7 @@
 require 'faker'
 
 
-5.times do
+45.times do
   User.create!(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password", bio: Faker::Lorem.paragraph, avatar: Faker::Internet.url, private: [true, false].sample)
 end
 
@@ -273,7 +273,7 @@ end
 
 Photo.all.each do |photo|
   2.times do 
-    photo.comments.create!(text: Faker::Lorem.words(5), commenter: User.all.sample)
+    photo.comments.create!(text: Faker::Lorem.word, commenter: User.all.sample)
     end 
   end 
 
@@ -286,12 +286,9 @@ Photo.all.each do |photo|
 end 
 
 
-# User.all.each do |user|
-#   users = User.all.select!(user) 
-#   2.times do 
-#     user.friendships.create!()
-#   end 
-# end 
+25.times do 
+  Friendship.create(friend: User.all.sample, user: User.all.sample)
+end 
 
 
 
