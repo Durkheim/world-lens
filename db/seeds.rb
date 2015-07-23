@@ -270,3 +270,31 @@ end
     a.photos.create!(title: Faker::Name.title, description: Faker::Lorem.paragraph, filename: Faker::Avatar.image, poster: a.visited_country.user)
   end
 end
+
+Photo.all.each do |photo|
+  2.times do 
+    photo.comments.create!(text: Faker::Lorem.words(5), commenter: User.all.sample)
+    end 
+  end 
+
+12.times do 
+  Tag.create!(text: Faker::Lorem.word)
+end
+
+Photo.all.each do |photo|
+  photo.photo_tags.create!(tag: Tag.all.sample)
+end 
+
+
+# User.all.each do |user|
+#   users = User.all.select!(user) 
+#   2.times do 
+#     user.friendships.create!()
+#   end 
+# end 
+
+
+
+
+
+
