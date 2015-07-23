@@ -1,7 +1,7 @@
 require 'faker'
 
 
-5.times do
+45.times do
   User.create!(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password", bio: Faker::Lorem.paragraph, avatar: Faker::Internet.url, private: [true, false].sample)
 end
 
@@ -270,3 +270,28 @@ end
     a.photos.create!(title: Faker::Name.title, description: Faker::Lorem.paragraph, filename: Faker::Avatar.image, poster: a.visited_country.user)
   end
 end
+
+Photo.all.each do |photo|
+  2.times do 
+    photo.comments.create!(text: Faker::Lorem.word, commenter: User.all.sample)
+    end 
+  end 
+
+12.times do 
+  Tag.create!(text: Faker::Lorem.word)
+end
+
+Photo.all.each do |photo|
+  photo.photo_tags.create!(tag: Tag.all.sample)
+end 
+
+
+25.times do 
+  Friendship.create(friend: User.all.sample, user: User.all.sample)
+end 
+
+
+
+
+
+
