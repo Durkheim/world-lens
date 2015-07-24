@@ -5,4 +5,6 @@ class Photo < ActiveRecord::Base
   has_many :tags, through: :photo_tags
   has_many :comments
   has_many :commenters, through: :comments
+
+  validates :filename, :presence => true 
 end
