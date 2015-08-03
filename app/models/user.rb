@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_secure_password 
+  
   has_many :photos
   has_many :comments, foreign_key: :commenter_id
   has_many :commented_photos, through: :comments, source: :photo
@@ -10,6 +12,7 @@ class User < ActiveRecord::Base
 
   validates :email, :presence=> true, :uniqueness => true, :format => /.+@.+\..+/
   validates :username, :presence => true, :uniqueness => true 
+
 
 
 end
