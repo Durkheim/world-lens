@@ -19,7 +19,7 @@ module Authentications
   end 
 
   def authorize
-    redirect_to '/login' unless current_user 
+    redirect_to '/' unless current_user 
   end
    
 end 
