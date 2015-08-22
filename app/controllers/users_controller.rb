@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
   before_action :authorize, only: [:show, :edit]
- 
-  def new 
-  end 
+
+  def new
+  end
 
   def show
+    @countries = Country.all
+    @user_countries = current_user.countries
   end
 
   def create
@@ -12,24 +14,24 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       redirect_to user_path(@user)
-    else 
+    else
       redirect_to root_url
     end
   end
 
-  def edit 
-  end 
+  def edit
+  end
 
   def update
   end
 
   def destroy
-    
+
   end
 
-  private 
+  private
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :avatar, :bio, :private)
-  end 
+  end
 end

@@ -1,2 +1,10 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<h1>countries</h1>
+<ul>
+  <%@countries.each do |country|%>
+    <%if @user_countries.include?(country)%>
+      <li style = "color: red;"><%=country.name%></li>
+    <%else%>
+      <li><%=country.name%></li>
+    <%end%>
+  <%end%>
+</ul>
