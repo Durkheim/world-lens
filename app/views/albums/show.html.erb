@@ -1,0 +1,5 @@
+<ul>
+<% @album.photos.each do |photo| %>
+  <li><%=photo.title%>: <%= image_tag(photo.filename)%></li>
+<%end%>
+</ul>

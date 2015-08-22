@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'albums/show'
+
   get 'countries/show'
 
   get 'visited_countries/show'
