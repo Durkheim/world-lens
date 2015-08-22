@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'countries/show'
+
+  get 'visited_countries/show'
+
   get    'signup'  => 'users#new'
   post   'users'   => 'users#create'
   get    'login'   => 'sessions#new'
@@ -7,13 +11,12 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   resources :users do
-    resources :visited_countries do
+    resources :countries do
         resources :albums do
           resources :photos
         end
     end
   end
-  resources :countries, only: [:show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -6,7 +6,9 @@ class UsersController < ApplicationController
 
   def show
     @countries = Country.all
-    @user_countries = current_user.countries
+    @user = User.find(params[:id])
+    @visited_countries = @user.visited_countries
+    @user_countries = @user.countries
   end
 
   def create

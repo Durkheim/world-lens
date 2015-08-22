@@ -2,7 +2,8 @@
 <ul>
   <%@countries.each do |country|%>
     <%if @user_countries.include?(country)%>
-      <li style = "color: red;"><%=country.name%></li>
+      <li style = "color: red;"><%=country.name%>
+        <%= link_to image_tag("Mexico.png"), user_country_path(@user, country) %></li>
     <%else%>
       <li><%=country.name%></li>
     <%end%>
